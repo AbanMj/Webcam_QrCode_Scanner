@@ -1,7 +1,5 @@
 
-from ast import Expr, excepthandler
 import cv2
-from cv2 import line
 import numpy as np
 import pyzbar.pyzbar as pyzbar
 import datetime
@@ -29,15 +27,15 @@ while True:
         BarCodeData = obj.data.decode("utf-8")
         the_text = "Data: " + str(BarCodeData)
         
+        #text in the video/screen
         cv2.putText(frame, the_text,  (10, 430), font, 1,
                    (0,255,255), 1, lineType=1)
-
-        cv2.putText(frame, e.strftime("Date &Time:  %a, %b %d, %Y    %I:%M:%S %p"), (10,450),
+        cv2.putText(frame, e.strftime("Date & Time:  %a, %b %d, %Y    %I:%M:%S %p"), (10,450),
                     font, 1, (0,255,255), 1, lineType=1 )
         
-        print("The Data is: " + BarCodeData + e.strftime("\n  Date &Time: %a, %b %d, %Y   %I:%M:%S %p"))
+        print("Data: " + BarCodeData + e.strftime("   Date & Time: %a, %b %d, %Y   %I:%M:%S %p"))
 
-    cv2.imshow("WebCam Scanner", frame)
+    cv2.imshow("WebCam QrCode Scanner", frame)
     
     key = cv2.waitKey(1)
     if key == ord('a'):
