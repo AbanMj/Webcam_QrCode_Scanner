@@ -5,7 +5,7 @@ import numpy as np
 import pyzbar.pyzbar as pyzbar
 import datetime
 
-print ("\nProgram: Contact Tracing App.")
+print ("\nProgram: Contact Tracing App.""\n")
 while True:
         start = input("Enter 'a' to start the program. \nCapital 'Q' to exit.  ").lower()
         if start[0] == 'q': 
@@ -46,8 +46,8 @@ def webcam_scanner():
 
         if BarCode:                                                             
             current_date = date_and_time()                                
-            qr_code = Data                               
-            print("--- QR Code Scanned ---\n" + qr_code + "\n")      
+            qr_code = Data            
+            print("\n--- QR Code Scanned ---\n\n" + qr_code + "\n")      
             counter = create_txt(qr_code, counter, current_date)
 
         cv2.imshow("WebCam QrCode Scanner", frame)
@@ -61,15 +61,16 @@ def webcam_scanner():
     camera.release()
     cv2.destroyAllWindows()
 
+
 def date_and_time():      
     Date_today = datetime.datetime.now()    
 
-    Date_today.strftime("Date:  %a, %b %d, %Y" " Time:  %I:%M:%S %p")
+    Date_today.strftime("Date:  %a, %b %d, %Y" "Time:  %I:%M:%S %p")
 
-    current_date= (Date_today.strftime("Date:  %a, %b %d, %Y" " Time:  %I:%M:%S %p"))
+    current_date= (Date_today.strftime("Date:  %a, %b %d, %Y" "\n" "Time:  %I:%M:%S %p"))
     return current_date
 
-def create_txt(qr_code, counter, current_date):                       
+def create_txt( qr_code, counter, current_date):                       
     try:                                                           
         if counter == 0:                                         
             file = open("Traze_Me.txt","w")                       
